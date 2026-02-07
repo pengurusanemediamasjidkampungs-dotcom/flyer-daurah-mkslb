@@ -21,17 +21,17 @@
             position: relative;
         }
         .header { text-align: center; color: #1e5128; border-bottom: 2px solid #4e944f; padding-bottom: 20px; }
-        .logo { width: 80px; margin-bottom: 10px; }
+        .logo { width: 120px; height: auto; margin-bottom: 10px; }
         .content { margin-top: 30px; }
         .feature-box { background: #f9f9f9; border-left: 5px solid #4e944f; padding: 15px; margin-bottom: 15px; }
-        .qr-section { text-align: center; margin-top: 40px; padding: 20px; border: 2px dashed #4e944f; border-radius: 20px; }
-        #qrcode { display: inline-block; margin-top: 15px; }
-        .footer { text-align: center; margin-top: 50px; font-size: 0.9rem; color: #666; }
+        .qr-section { text-align: center; margin-top: 20px; padding: 20px; border: 2px dashed #4e944f; border-radius: 20px; background-color: #fff; }
+        #qrcode { display: inline-block; margin-top: 15px; border: 10px solid white; }
+        .footer { text-align: center; margin-top: 40px; font-size: 0.9rem; color: #666; }
         
         /* CSS untuk Print */
         @media print {
-            body { background: none; }
-            .a4-page { margin: 0; box-shadow: none; border: 10px solid #1e5128; }
+            body { background: none; margin: 0; padding: 0; }
+            .a4-page { margin: 0; box-shadow: none; border: 10px solid #1e5128; width: 100%; height: 100%; }
             .no-print { display: none; }
         }
     </style>
@@ -39,45 +39,51 @@
 <body>
 
     <div class="text-center mt-4 no-print">
-        <button class="btn btn-primary btn-lg" onclick="window.print()">🖨️ Cetak Borang Iklan</button>
-        <p class="small mt-2 text-muted">Gunakan kertas A4 untuk hasil terbaik.</p>
+        <button class="btn btn-success btn-lg shadow" onclick="window.print()">🖨️ CETAK FLYER SEKARANG</button>
+        <p class="small mt-2 text-muted">Pastikan "Background Graphics" diaktifkan dalam tetapan cetakan (Print Settings).</p>
     </div>
 
     <div class="a4-page">
         <div class="header">
-            <img src="logo.png" alt="Logo" class="logo" onerror="this.src='https://via.placeholder.com/80?text=MKSLB'">
-            <h1 class="fw-bold">DAURAH REMAJA QURANIC 2026</h1>
+            <img src="logo.png" alt="Logo MKSLB" class="logo" onerror="this.src='https://via.placeholder.com/120?text=MKSLB'">
+            <h1 class="fw-bold mt-2">DAURAH REMAJA QURANIC 2026</h1>
             <h4 class="text-uppercase">Masjid Kampung Sungai Lang Baru (MKSLB)</h4>
         </div>
 
         <div class="content">
             <div class="row">
                 <div class="col-7">
-                    <h3 class="fw-bold text-success mb-3">Sertai Kami!</h3>
-                    <p>Program intensif hafazan dan pemantapan rohani khas untuk remaja sempena <strong>Ihya Ramadhan 1447H</strong>.</p>
+                    <h3 class="fw-bold text-success mb-3">Pendaftaran Dibuka!</h3>
+                    <p class="lead">Program intensif hafazan dan pemantapan rohani khas untuk remaja sempena <strong>Ihya Ramadhan 1447H</strong>.</p>
                     
                     <div class="feature-box">
-                        <h6 class="fw-bold mb-1">🗓️ TARIKH PROGRAM</h6>
+                        <h6 class="fw-bold mb-1 text-dark">🗓️ TARIKH PROGRAM</h6>
                         <p class="mb-0">Setiap Hujung Minggu (Sabtu & Ahad)</p>
                     </div>
                     
                     <div class="feature-box">
-                        <h6 class="fw-bold mb-1">🎯 OBJEKTIF</h6>
-                        <p class="mb-0">Khatam Silibus Hafazan Tahap 1-5 & Pengisian Tajwid Praktikal.</p>
+                        <h6 class="fw-bold mb-1 text-dark">🎯 KRITERIA PESERTA</h6>
+                        <ul class="mb-0 ps-3">
+                            <li>Boleh Membaca Al-Quran dengan lancar.</li>
+                            <li>Mempunyai minat yang tinggi untuk fokus menghafaz.</li>
+                            <li>Berminat mendalami Tadabbur Al-Quran dan Sains.</li>
+                        </ul>
                     </div>
 
                     <div class="feature-box">
-                        <h6 class="fw-bold mb-1">🍱 KEMUDAHAN</h6>
-                        <p class="mb-0">Modul Digital, Iftar, Moreh & Sijil Penyertaan.</p>
+                        <h6 class="fw-bold mb-1 text-dark">📖 OBJEKTIF UTAMA</h6>
+                        <p class="mb-0">Khatam Silibus Hafazan Tahap 1-5 & Memahami kaitan Al-Quran dengan ilmu Sains Moden.</p>
                     </div>
                 </div>
 
                 <div class="col-5">
                     <div class="qr-section">
-                        <h6 class="fw-bold">DAFTAR SEKARANG</h6>
-                        <p class="small">Imbas QR di bawah menggunakan kamera telefon anda:</p>
+                        <h6 class="fw-bold">IMBAS UNTUK DAFTAR</h6>
+                        <p class="small text-muted">Gunakan kamera telefon anda untuk imbas kod di bawah:</p>
                         <div id="qrcode"></div>
-                        <p class="mt-3 fw-bold text-danger">TARIKH TUTUP:<br>1 RAMADHAN 1447H</p>
+                        <div class="mt-3">
+                            <span class="badge bg-danger px-3 py-2">TARIKH TUTUP:<br>1 RAMADHAN 1447H</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -85,13 +91,13 @@
 
         <div class="footer">
             <hr>
-            <p>Sebarang pertanyaan, sila hubungi Biro Belia/Pendidikan Masjid MKSLB</p>
-            <strong>"Membina Generasi Al-Quran, Memakmurkan Ummah"</strong>
+            <p class="mb-1">Sebarang pertanyaan, sila hubungi Biro Belia / Pendidikan Masjid MKSLB</p>
+            <h5 class="fw-bold text-dark">"Membina Generasi Al-Quran, Memakmurkan Ummah"</h5>
         </div>
     </div>
 
     <script>
-        // Link yang anda berikan
+        // Link Pendaftaran Rasmi anda
         const linkPendaftaran = "https://pengurusanemediamasjidkampungs-dotcom.github.io/pendaftaran-daurah-mkslb-2026/";
 
         // Jana QR Code secara automatik
