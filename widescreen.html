@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flyer Widescreen Daurah 2026</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        /* Tetapan Asal */
+        body { background-color: #f0f0f0; font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
+        
+        /* Transformasi ke Saiz 16:9 Landscape */
+        .flyer-page {
+            width: 100vw;
+            height: 100vh;
+            padding: 30px 50px;
+            background: white;
+            border: 20px solid #1e5128; /* Bingkai Hijau Masjid Asal */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Header Style Asal */
+        .header { 
+            text-align: center; 
+            color: #1e5128; 
+            border-bottom: 3px solid #4e944f; 
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        .logo { width: 100px; height: auto; margin-bottom: 5px; }
+        h1 { font-size: 3rem; margin: 0; }
+        h4 { font-size: 1.5rem; margin: 0; }
+
+        /* Content Layout */
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .left-side { flex: 1.3; }
+        .right-side { flex: 1; display: flex; justify-content: center; }
+
+        .promo-title { font-size: 2.2rem; font-weight: 700; color: #198754; margin-bottom: 10px; }
+        .lead { font-size: 1.25rem; color: #333; margin-bottom: 25px; }
+
+        /* Feature Box Style Asal (Susunan Horizontal) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+        }
+        .feature-box { 
+            background: #f9f9f9; 
+            border-left: 6px solid #4e944f; 
+            padding: 15px; 
+            height: 100%;
+        }
+        .feature-box h6 { font-size: 1rem; font-weight: 700; color: #212529; margin-bottom: 8px; }
+        .feature-box p, .feature-box li { font-size: 0.9rem; color: #444; line-height: 1.4; }
+
+        /* QR Section Style Asal */
+        .qr-section { 
+            text-align: center; 
+            padding: 25px; 
+            border: 3px dashed #4e944f; 
+            border-radius: 25px; 
+            background-color: #fff;
+            width: 100%;
+            max-width: 400px;
+        }
+        .qr-section h6 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+        #qrcode { display: inline-block; padding: 10px; background: white; border: 10px solid white; }
+        
+        .badge-tutup {
+            background-color: #dc3545;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        /* Footer Style Asal */
+        .footer { 
+            text-align: center; 
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        .footer p { font-size: 1rem; color: #666; margin-bottom: 5px; }
+        .footer h5 { font-size: 1.8rem; font-weight: 700; color: #212529; margin: 0; }
+
+        /* Media Print */
+        @media print {
+            @page { size: landscape; margin: 0; }
+            body { background: none; }
+            .flyer-page { border-width: 15px; width: 100vw; height: 100vh; }
+            .no-print { display: none; }
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text-center py-2 no-print">
+        <button class="btn btn-success shadow" onclick="window.print()">🖨️ CETAK 1 PAGE LANDSCAPE</button>
+    </div>
+
+    <div class="flyer-page">
+        <div class="header">
+            <img src="logo.png" alt="Logo MKSLB" class="logo" onerror="this.src='https://via.placeholder.com/100?text=MKSLB'">
+            <h1 class="fw-bold">DAURAH REMAJA QURANIC 2026</h1>
+            <h4 class="text-uppercase">Masjid Kampung Sungai Lang Baru (MKSLB)</h4>
+        </div>
+
+        <div class="main-content">
+            <div class="left-side">
+                <h3 class="promo-title">Pendaftaran Dibuka!</h3>
+                <p class="lead">Program intensif hafazan dan pemantapan rohani remaja sempena <strong>Ihya Ramadhan 1447H</strong>.</p>
+                
+                <div class="info-grid">
+                    <div class="feature-box">
+                        <h6>🗓️ TARIKH PROGRAM</h6>
+                        <p class="mb-0">Setiap Hujung Minggu (Sabtu & Ahad)</p>
+                    </div>
+                    
+                    <div class="feature-box">
+                        <h6>🎯 KRITERIA PESERTA</h6>
+                        <ul class="mb-0 ps-3">
+                            <li>Lancar baca Al-Quran.</li>
+                            <li>Fokus menghafaz.</li>
+                            <li>Tadabbur & Sains.</li>
+                        </ul>
+                    </div>
+
+                    <div class="feature-box">
+                        <h6>📖 OBJEKTIF UTAMA</h6>
+                        <p class="mb-0">Khatam Silibus Tahap 1-5 & Ilmu Sains Moden.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="qr-section">
+                    <h6>IMBAS UNTUK DAFTAR</h6>
+                    <div id="qrcode"></div>
+                    <div>
+                        <span class="badge-tutup">TARIKH TUTUP:<br>1 RAMADHAN 1447H</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Sebarang pertanyaan, sila hubungi Biro Belia / Pendidikan Masjid MKSLB</p>
+            <h5 class="fw-bold">"Membina Generasi Al-Quran, Memakmurkan Ummah"</h5>
+        </div>
+    </div>
+
+    <script>
+        const linkPendaftaran = "https://pengurusanemediamasjidkampungs-dotcom.github.io/pendaftaran-daurah-mkslb-2026/";
+
+        new QRCode(document.getElementById("qrcode"), {
+            text: linkPendaftaran,
+            width: 220,
+            height: 220,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    </script>
+
+</body>
+</html>
