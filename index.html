@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flyer Daurah 2026 - 4K Ultra HD</title>
+    <title>Flyer Daurah 2026 - 4K Horizontal Layout</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -17,142 +17,120 @@
             background-color: #111; 
             font-family: 'Poppins', sans-serif; 
             margin: 0;
-            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
         }
 
-        /* 4K Resolution Setup (3840x2160) */
+        /* 4K Canvas Setup */
         .canvas-4k {
             width: 3840px;
             height: 2160px;
             background: white;
-            background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
+            background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), 
                               url('https://www.transparenttextures.com/patterns/arabesque.png');
-            margin: 0 auto;
             display: flex;
             flex-direction: column;
             border: 60px solid var(--primary-green);
-            position: relative;
             box-sizing: border-box;
+            position: relative;
         }
 
-        /* Header Area */
+        /* Header */
         .header {
-            height: 500px;
+            height: 450px;
             background-color: var(--primary-green);
             color: white;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 0 100px;
-            text-align: left;
+            padding: 0 150px;
         }
 
-        .logo { width: 350px; height: auto; margin-right: 80px; filter: brightness(0) invert(1); }
-        
-        .header-text h1 { 
-            font-size: 140px; 
-            font-weight: 800; 
-            margin: 0; 
-            letter-spacing: 2px;
-            line-height: 1.1;
-        }
-        .header-text h4 { font-size: 60px; font-weight: 400; opacity: 0.9; margin-top: 10px; }
+        .logo { width: 320px; height: auto; margin-right: 80px; filter: brightness(0) invert(1); }
+        .header-text h1 { font-size: 130px; font-weight: 800; margin: 0; line-height: 1; }
+        .header-text h4 { font-size: 55px; font-weight: 400; opacity: 0.9; margin: 10px 0 0 0; }
 
-        /* Main Content Area */
-        .main-container {
-            flex: 1;
+        /* Top Content (Promo & QR) */
+        .top-content {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.5fr 1fr;
             gap: 100px;
-            padding: 120px 150px;
-            align-items: start;
+            padding: 100px 150px 50px 150px;
+            align-items: center;
         }
 
-        .promo-title {
-            font-size: 110px;
-            font-weight: 800;
-            color: var(--primary-green);
-            margin-bottom: 50px;
-        }
+        .promo-section h2 { font-size: 120px; font-weight: 800; color: var(--primary-green); margin-bottom: 40px; }
+        .promo-section p { font-size: 65px; line-height: 1.4; color: #333; margin: 0; }
 
-        .description {
-            font-size: 65px;
-            line-height: 1.5;
-            color: #333;
-            margin-bottom: 80px;
-        }
-
-        /* Info Cards */
-        .info-card {
-            background: #f1f8f1;
-            border-left: 25px solid var(--accent-green);
-            padding: 60px;
-            border-radius: 20px;
-            margin-bottom: 50px;
-        }
-
-        .info-card h3 { font-size: 55px; font-weight: 700; color: var(--primary-green); margin-bottom: 20px; }
-        .info-card p, .info-card li { font-size: 48px; color: #444; list-style-type: square; }
-
-        /* QR Section */
         .qr-card {
             background: white;
-            border: 8px solid var(--accent-green);
-            border-radius: 50px;
-            padding: 80px;
+            border: 10px solid var(--accent-green);
+            border-radius: 60px;
+            padding: 60px;
             text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
         }
-
-        .qr-card h2 { font-size: 65px; font-weight: 700; margin-bottom: 30px; }
-        #qrcode { 
-            background: white;
-            padding: 40px;
-            display: inline-block;
-        }
-        
-        .deadline-badge {
+        .qr-card h3 { font-size: 55px; font-weight: 700; margin-bottom: 30px; }
+        #qrcode { display: inline-block; padding: 20px; background: white; }
+        .deadline {
             background: #dc3545;
             color: white;
-            font-size: 50px;
-            padding: 30px 60px;
+            font-size: 45px;
+            padding: 25px 50px;
             border-radius: 100px;
             display: inline-block;
-            margin-top: 60px;
+            margin-top: 40px;
             font-weight: 600;
         }
+
+        /* Horizontal Info Grid (The 3 Boxes) */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            padding: 50px 150px;
+            flex-grow: 1;
+        }
+
+        .info-box {
+            background: #f4fbf4;
+            border-top: 25px solid var(--accent-green);
+            padding: 60px;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+        }
+
+        .info-box h3 { 
+            font-size: 55px; 
+            font-weight: 700; 
+            color: var(--primary-green); 
+            margin-bottom: 30px; 
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .info-box p, .info-box li { font-size: 45px; color: #444; line-height: 1.5; }
+        .info-box ul { padding-left: 50px; }
 
         /* Footer */
         .footer {
             height: 250px;
-            border-top: 5px solid #eee;
+            background: #fdfdfd;
+            border-top: 4px solid #eee;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: #fafafa;
         }
+        .footer p { font-size: 40px; color: #666; margin: 0; }
+        .footer h2 { font-size: 65px; color: var(--primary-green); font-weight: 700; margin-top: 10px; }
 
-        .footer p { font-size: 45px; color: #666; margin: 0; }
-        .footer h2 { font-size: 70px; color: var(--primary-green); font-weight: 700; margin-top: 10px; }
-
-        /* Scale for preview on normal screens */
-        @media screen and (max-width: 3840px) {
-            body { 
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                background: #333;
-            }
+        /* Preview Scaling for standard monitors */
+        @media screen and (max-width: 3839px) {
             .canvas-4k {
-                transform: scale(0.25); /* Preview scale (1/4 size) */
+                transform: scale(0.22);
                 transform-origin: top center;
-                margin-top: 50px;
+                margin-top: 20px;
             }
-        }
-
-        @media print {
-            .canvas-4k { transform: scale(1); margin: 0; border: none; }
         }
     </style>
 </head>
@@ -160,47 +138,42 @@
 
     <div class="canvas-4k">
         <div class="header">
-            <img src="logo.png" alt="Logo" class="logo" onerror="this.src='https://via.placeholder.com/350x350/ffffff/1e5128?text=MKSLB'">
+            <img src="logo.png" alt="Logo" class="logo" onerror="this.src='https://via.placeholder.com/320x320/ffffff/1e5128?text=MKSLB'">
             <div class="header-text">
                 <h1>DAURAH REMAJA QURANIC 2026</h1>
                 <h4>Masjid Kampung Sungai Lang Baru (MKSLB)</h4>
             </div>
         </div>
 
-        <div class="main-container">
-            <div class="left-col">
-                <div class="promo-title">PENDAFTARAN DIBUKA</div>
-                <div class="description">
-                    Program intensif hafazan dan pemantapan rohani sempena <strong>Ihya Ramadhan 1447H</strong>.
-                </div>
+        <div class="top-content">
+            <div class="promo-section">
+                <h2>PENDAFTARAN DIBUKA</h2>
+                <p>Sertai program intensif hafazan dan pemantapan rohani remaja sempena <strong>Ihya Ramadhan 1447H</strong>. Slot adalah terhad!</p>
+            </div>
+            <div class="qr-card">
+                <h3>IMBAS UNTUK DAFTAR</h3>
+                <div id="qrcode"></div>
+                <div class="deadline">TUTUP: 1 RAMADHAN 1447H</div>
+            </div>
+        </div>
 
-                <div class="info-card">
-                    <h3>🗓️ TARIKH PROGRAM</h3>
-                    <p>Setiap Hujung Minggu (Sabtu & Ahad)</p>
-                </div>
-
-                <div class="info-card">
-                    <h3>🎯 KRITERIA PESERTA</h3>
-                    <ul class="mb-0">
-                        <li>Boleh Membaca Al-Quran dengan lancar.</li>
-                        <li>Berminat mendalami Tadabbur & Sains.</li>
-                    </ul>
-                </div>
+        <div class="info-grid">
+            <div class="info-box">
+                <h3>🗓️ TARIKH PROGRAM</h3>
+                <p>Setiap Hujung Minggu<br><strong>Sabtu & Ahad</strong></p>
             </div>
 
-            <div class="right-col">
-                <div class="qr-card">
-                    <h2>IMBAS UNTUK DAFTAR</h2>
-                    <div id="qrcode"></div>
-                    <div class="deadline-badge">
-                        TARIKH TUTUP: 1 RAMADHAN 1447H
-                    </div>
-                </div>
-                
-                <div class="info-card mt-5" style="border-left-color: #1e5128;">
-                    <h3>📖 OBJEKTIF</h3>
-                    <p>Khatam Silibus Hafazan Tahap 1-5 & Ilmu Sains Al-Quran.</p>
-                </div>
+            <div class="info-box">
+                <h3>🎯 KRITERIA PESERTA</h3>
+                <ul>
+                    <li>Lancar membaca Al-Quran.</li>
+                    <li>Minat mendalam dalam Tadabbur & Sains.</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>📖 OBJEKTIF</h3>
+                <p>Khatam Silibus Hafazan Tahap 1-5 & Memahami Al-Quran melalui Sains Moden.</p>
             </div>
         </div>
 
@@ -212,12 +185,10 @@
 
     <script>
         const linkPendaftaran = "https://pengurusanemediamasjidkampungs-dotcom.github.io/pendaftaran-daurah-mkslb-2026/";
-
-        // QR Code Size for 4K Screen
         new QRCode(document.getElementById("qrcode"), {
             text: linkPendaftaran,
-            width: 600,
-            height: 600,
+            width: 550,
+            height: 550,
             colorDark : "#1e5128",
             colorLight : "#ffffff",
             correctLevel : QRCode.CorrectLevel.H
