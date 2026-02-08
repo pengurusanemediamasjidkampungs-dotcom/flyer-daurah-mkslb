@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flyer Daurah 2026 - Full Widescreen 16:9</title>
+    <title>Flyer Widescreen Daurah 2026</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
-        /* Membuang semua margin dan padding asal browser */
+        /* Buang margin asal & elak scrollbar */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        
         body { 
-            background-color: #1e5128; /* Warna hijau masjid sebagai fallback */
+            background-color: #1e5128; 
             font-family: 'Poppins', sans-serif; 
-            overflow: hidden; /* Elak scrollbar */
+            overflow: hidden; 
         }
 
-        /* Kontainer Utama: Memenuhi 100% skrin tanpa grey area */
-        .full-screen-wrapper {
+        /* Kontainer Widescreen 16:9 */
+        .widescreen-page {
             width: 100vw;
             height: 100vh;
             background: white;
-            border: 25px solid #1e5128; /* Bingkai hijau di paling tepi */
+            border: 25px solid #1e5128; /* Bingkai Hijau Masjid Kekal */
             display: flex;
             flex-direction: column;
             position: relative;
         }
 
-        /* Header: Lebar penuh */
+        /* Header Style Asal */
         .header { 
-            background-color: #1e5128;
-            color: white;
-            padding: 40px 60px;
-            text-align: center;
-            border-bottom: 8px solid #4e944f;
+            text-align: center; 
+            color: #1e5128; 
+            border-bottom: 5px solid #4e944f; 
+            padding: 30px 0;
+            background-color: #fff;
         }
+        .logo { width: 140px; height: auto; margin-bottom: 10px; }
+        h1 { font-size: 65px; font-weight: 700; margin: 0; }
+        h4 { font-size: 30px; letter-spacing: 2px; }
 
-        .logo { width: 140px; height: auto; margin-bottom: 15px; filter: brightness(0) invert(1); }
-        h1 { font-size: 70px; font-weight: 900; margin: 0; line-height: 1; }
-        h4 { font-size: 32px; font-weight: 400; margin-top: 10px; opacity: 0.9; }
-
-        /* Kandungan Tengah: Menggunakan ruang baki skrin */
-        .main-content {
+        /* Kandungan Utama */
+        .content {
             flex: 1;
             display: flex;
             padding: 40px 60px;
@@ -50,120 +49,124 @@
             align-items: center;
         }
 
-        .left-col { flex: 1.4; }
-        .right-col { flex: 1; display: flex; justify-content: center; }
+        .left-side { flex: 1.5; }
+        .right-side { flex: 1; display: flex; justify-content: center; }
 
-        .promo-title { font-size: 65px; font-weight: 700; color: #1e5128; margin-bottom: 20px; }
-        .lead-text { font-size: 34px; line-height: 1.4; color: #333; margin-bottom: 40px; }
+        .promo-text h3 { font-size: 55px; font-weight: 700; color: #198754; margin-bottom: 15px; }
+        .promo-text .lead { font-size: 28px; color: #333; margin-bottom: 30px; line-height: 1.4; }
 
-        /* Grid 3 Maklumat: Memanjang secara horizontal */
+        /* Susunan Horizontal Feature Box */
         .info-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             gap: 20px;
-            width: 100%;
         }
 
         .feature-box { 
-            background: #f4fbf4; 
-            border-top: 12px solid #4e944f; 
-            padding: 30px; 
-            border-radius: 0 0 20px 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            background: #f9f9f9; 
+            border-left: 8px solid #4e944f; 
+            padding: 25px; 
             height: 100%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        
-        .feature-box h6 { font-size: 24px; font-weight: 700; color: #1e5128; margin-bottom: 15px; }
-        .feature-box p, .feature-box li { font-size: 20px; color: #444; line-height: 1.4; }
+        .feature-box h6 { font-size: 22px; font-weight: 700; color: #212529; margin-bottom: 12px; }
+        .feature-box p, .feature-box li { font-size: 19px; color: #444; line-height: 1.3; }
 
-        /* QR Section: Lebih besar untuk skrin TV */
-        .qr-card { 
-            background: white;
-            border: 6px solid #4e944f;
-            padding: 40px;
-            border-radius: 50px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        /* QR Section Style Asal */
+        .qr-section { 
+            text-align: center; 
+            padding: 40px; 
+            border: 5px dashed #4e944f; 
+            border-radius: 40px; 
+            background-color: #fff;
             width: 100%;
-            max-width: 550px;
+            max-width: 500px;
         }
-
-        .qr-card h3 { font-size: 32px; font-weight: 700; margin-bottom: 20px; }
-        #qrcode { display: inline-block; padding: 15px; background: white; }
+        .qr-section h6 { font-size: 26px; font-weight: 700; margin-bottom: 15px; }
+        #qrcode { display: inline-block; margin-top: 10px; border: 15px solid white; }
         
         .badge-tutup {
             background-color: #dc3545;
             color: white;
-            padding: 20px 30px;
-            border-radius: 100px;
-            font-size: 24px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 22px;
             font-weight: 700;
-            margin-top: 30px;
+            margin-top: 25px;
             display: inline-block;
         }
 
-        /* Footer: Melekat di bawah sekali */
+        /* Footer Style Asal */
         .footer { 
-            padding: 30px 60px;
-            text-align: center;
+            text-align: center; 
+            padding: 25px; 
             background: #fdfdfd;
             border-top: 2px solid #eee;
         }
-        .footer p { font-size: 24px; color: #666; margin: 0; }
-        .footer h5 { font-size: 38px; font-weight: 700; color: #1e5128; margin-top: 5px; }
+        .footer p { font-size: 20px; color: #666; margin-bottom: 5px; }
+        .footer h5 { font-size: 34px; font-weight: 700; color: #212529; margin: 0; }
 
+        /* Butang Cetak hanya untuk admin */
+        .no-print { position: fixed; top: 10px; right: 10px; z-index: 1000; opacity: 0.5; }
+        .no-print:hover { opacity: 1; }
     </style>
 </head>
 <body>
 
-    <div class="full-screen-wrapper">
+    <div class="no-print">
+        <button class="btn btn-success btn-sm" onclick="window.print()">🖨️ CETAK</button>
+    </div>
+
+    <div class="widescreen-page">
         <div class="header">
             <img src="logo.png" alt="Logo MKSLB" class="logo" onerror="this.src='https://via.placeholder.com/150/ffffff/1e5128?text=MKSLB'">
-            <h1>DAURAH REMAJA QURANIC 2026</h1>
-            <h4>Masjid Kampung Sungai Lang Baru (MKSLB)</h4>
+            <h1 class="fw-bold">DAURAH REMAJA QURANIC 2026</h1>
+            <h4 class="text-uppercase">Masjid Kampung Sungai Lang Baru (MKSLB)</h4>
         </div>
 
-        <div class="main-content">
-            <div class="left-col">
-                <h2 class="promo-title">Pendaftaran Dibuka!</h2>
-                <p class="lead-text">Program intensif hafazan dan pemantapan rohani remaja sempena <strong>Ihya Ramadhan 1447H</strong>.</p>
+        <div class="content">
+            <div class="left-side">
+                <div class="promo-text">
+                    <h3 class="fw-bold">Pendaftaran Dibuka!</h3>
+                    <p class="lead">Program intensif hafazan dan pemantapan rohani khas untuk remaja sempena <strong>Ihya Ramadhan 1447H</strong>.</p>
+                </div>
                 
                 <div class="info-grid">
                     <div class="feature-box">
-                        <h6>🗓️ TARIKH PROGRAM</h6>
-                        <p>Setiap Hujung Minggu<br><strong>(Sabtu & Ahad)</strong></p>
+                        <h6 class="fw-bold">🗓️ TARIKH PROGRAM</h6>
+                        <p class="mb-0">Setiap Hujung Minggu (Sabtu & Ahad)</p>
                     </div>
                     
                     <div class="feature-box">
-                        <h6>🎯 KRITERIA PESERTA</h6>
-                        <ul class="ps-3 mb-0">
+                        <h6 class="fw-bold">🎯 KRITERIA PESERTA</h6>
+                        <ul class="mb-0 ps-3">
                             <li>Lancar baca Al-Quran.</li>
-                            <li>Fokus menghafaz.</li>
-                            <li>Minat Tadabbur & Sains.</li>
+                            <li>Minat fokus menghafaz.</li>
+                            <li>Tadabbur & Sains.</li>
                         </ul>
                     </div>
 
                     <div class="feature-box">
-                        <h6>📖 OBJEKTIF UTAMA</h6>
-                        <p>Khatam Silibus Tahap 1-5 & Hubungan Al-Quran dengan Sains.</p>
+                        <h6 class="fw-bold">📖 OBJEKTIF UTAMA</h6>
+                        <p class="mb-0">Khatam Silibus Hafazan Tahap 1-5 & Ilmu Sains Moden.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="right-col">
-                <div class="qr-card">
-                    <h3>IMBAS UNTUK DAFTAR</h3>
+            <div class="right-side">
+                <div class="qr-section">
+                    <h6 class="fw-bold">IMBAS UNTUK DAFTAR</h6>
                     <div id="qrcode"></div>
-                    <div class="badge-tutup">
-                        TARIKH TUTUP: 1 RAMADHAN 1447H
+                    <div class="mt-2">
+                        <span class="badge-tutup">TARIKH TUTUP:<br>1 RAMADHAN 1447H</span>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="footer">
-            <p>Hubungi Biro Belia / Pendidikan Masjid MKSLB untuk maklumat lanjut</p>
-            <h5>"Membina Generasi Al-Quran, Memakmurkan Ummah"</h5>
+            <p>Sebarang pertanyaan, sila hubungi Biro Belia / Pendidikan Masjid MKSLB</p>
+            <h5 class="fw-bold text-dark">"Membina Generasi Al-Quran, Memakmurkan Ummah"</h5>
         </div>
     </div>
 
@@ -172,9 +175,9 @@
 
         new QRCode(document.getElementById("qrcode"), {
             text: linkPendaftaran,
-            width: 350,
-            height: 350,
-            colorDark : "#1e5128",
+            width: 300,
+            height: 300,
+            colorDark : "#000000",
             colorLight : "#ffffff",
             correctLevel : QRCode.CorrectLevel.H
         });
