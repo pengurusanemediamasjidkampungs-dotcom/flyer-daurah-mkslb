@@ -3,181 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flyer Daurah 2026 - 4K Horizontal Layout</title>
+    <title>Flyer 4K - 43 Inch Display</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <style>
         :root {
-            --primary-green: #1e5128;
-            --accent-green: #4e944f;
+            --dark-green: #1e5128;
+            --mid-green: #4e944f;
+            --bg-light: #ffffff;
         }
 
         body { 
-            background-color: #111; 
+            background-color: #000; 
             font-family: 'Poppins', sans-serif; 
             margin: 0;
             display: flex;
             justify-content: center;
+            overflow: hidden;
         }
 
-        /* 4K Canvas Setup */
-        .canvas-4k {
+        /* 4K Canvas 3840x2160 */
+        .canvas-43inch {
             width: 3840px;
             height: 2160px;
-            background: white;
-            background-image: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), 
-                              url('https://www.transparenttextures.com/patterns/arabesque.png');
+            background: var(--bg-light);
             display: flex;
             flex-direction: column;
-            border: 60px solid var(--primary-green);
+            border: 40px solid var(--dark-green);
             box-sizing: border-box;
             position: relative;
         }
 
-        /* Header */
+        /* Header - Full Width */
         .header {
-            height: 450px;
-            background-color: var(--primary-green);
+            background-color: var(--dark-green);
             color: white;
+            padding: 80px 100px;
             display: flex;
             align-items: center;
-            padding: 0 150px;
+            justify-content: space-between;
         }
 
-        .logo { width: 320px; height: auto; margin-right: 80px; filter: brightness(0) invert(1); }
-        .header-text h1 { font-size: 130px; font-weight: 800; margin: 0; line-height: 1; }
-        .header-text h4 { font-size: 55px; font-weight: 400; opacity: 0.9; margin: 10px 0 0 0; }
+        .header-content { display: flex; align-items: center; }
+        .logo { width: 380px; height: auto; margin-right: 60px; filter: brightness(0) invert(1); }
+        .header-text h1 { font-size: 160px; font-weight: 900; margin: 0; letter-spacing: -2px; }
+        .header-text h4 { font-size: 70px; font-weight: 400; opacity: 0.9; margin: 0; }
 
-        /* Top Content (Promo & QR) */
-        .top-content {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 100px;
-            padding: 100px 150px 50px 150px;
-            align-items: center;
-        }
-
-        .promo-section h2 { font-size: 120px; font-weight: 800; color: var(--primary-green); margin-bottom: 40px; }
-        .promo-section p { font-size: 65px; line-height: 1.4; color: #333; margin: 0; }
-
-        .qr-card {
-            background: white;
-            border: 10px solid var(--accent-green);
-            border-radius: 60px;
-            padding: 60px;
-            text-align: center;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.1);
-        }
-        .qr-card h3 { font-size: 55px; font-weight: 700; margin-bottom: 30px; }
-        #qrcode { display: inline-block; padding: 20px; background: white; }
-        .deadline {
-            background: #dc3545;
-            color: white;
-            font-size: 45px;
-            padding: 25px 50px;
-            border-radius: 100px;
-            display: inline-block;
-            margin-top: 40px;
-            font-weight: 600;
-        }
-
-        /* Horizontal Info Grid (The 3 Boxes) */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 60px;
-            padding: 50px 150px;
-            flex-grow: 1;
-        }
-
-        .info-box {
-            background: #f4fbf4;
-            border-top: 25px solid var(--accent-green);
-            padding: 60px;
-            border-radius: 0 0 30px 30px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-
-        .info-box h3 { 
-            font-size: 55px; 
-            font-weight: 700; 
-            color: var(--primary-green); 
-            margin-bottom: 30px; 
+        /* Main Content - Flex Row */
+        .main-row {
             display: flex;
-            align-items: center;
-            gap: 20px;
+            flex: 1;
+            padding: 80px 100px;
+            gap: 80px;
+            align-items: flex-start;
         }
-        .info-box p, .info-box li { font-size: 45px; color: #444; line-height: 1.5; }
-        .info-box ul { padding-left: 50px; }
 
-        /* Footer */
-        .footer {
-            height: 250px;
-            background: #fdfdfd;
-            border-top: 4px solid #eee;
+        .info-panel {
+            flex: 2;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
+            height: 100%;
         }
-        .footer p { font-size: 40px; color: #666; margin: 0; }
-        .footer h2 { font-size: 65px; color: var(--primary-green); font-weight: 700; margin-top: 10px; }
 
-        /* Preview Scaling for standard monitors */
+        .promo-text {
+            margin-bottom: 60px;
+        }
+        .promo-text h2 { font-size: 140px; font-weight: 900; color: var(--dark-green); margin-bottom: 20px; }
+        .promo-text p { font-size: 85px; color: #333; line-height: 1.3; margin: 0; }
+
+        /* Horizontal Boxes - Tiga Beradik */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .detail-box {
+            background: #f0f7f0;
+            border-bottom: 30px solid var(--mid-green);
+            padding: 60px;
+            border-radius: 30px;
+            height: 750px; /* Samakan tinggi */
+        }
+
+        .detail-box h3 { font-size: 70px; font-weight: 700; color: var(--dark-green); margin-bottom: 40px; border-bottom: 5px solid #ccc; padding-bottom: 20px; }
+        .detail-box p, .detail-box li { font-size: 55px; color: #222; line-height: 1.4; }
+        .detail-box ul { padding-left: 60px; }
+
+        /* QR Sidebar */
+        .qr-panel {
+            flex: 0.8;
+            background: white;
+            border: 12px solid var(--mid-green);
+            border-radius: 80px;
+            padding: 80px 50px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.1);
+        }
+
+        .qr-panel h2 { font-size: 80px; font-weight: 700; margin-bottom: 40px; color: #000; }
+        #qrcode { background: white; padding: 30px; }
+        .badge-tutup {
+            background: #dc3545;
+            color: white;
+            font-size: 60px;
+            padding: 40px 80px;
+            border-radius: 100px;
+            margin-top: 60px;
+            font-weight: 700;
+            width: 90%;
+        }
+
+        /* Footer Bar */
+        .footer-bar {
+            background: #f8f9fa;
+            padding: 60px 100px;
+            border-top: 5px solid #eee;
+            text-align: center;
+        }
+        .footer-bar p { font-size: 50px; color: #666; margin-bottom: 10px; }
+        .footer-bar h2 { font-size: 90px; color: var(--dark-green); font-weight: 700; margin: 0; }
+
+        /* Preview for smaller screens */
         @media screen and (max-width: 3839px) {
-            .canvas-4k {
-                transform: scale(0.22);
+            .canvas-43inch {
+                transform: scale(0.22); /* Adjust scale to fit your monitor for preview */
                 transform-origin: top center;
-                margin-top: 20px;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="canvas-4k">
+    <div class="canvas-43inch">
         <div class="header">
-            <img src="logo.png" alt="Logo" class="logo" onerror="this.src='https://via.placeholder.com/320x320/ffffff/1e5128?text=MKSLB'">
-            <div class="header-text">
-                <h1>DAURAH REMAJA QURANIC 2026</h1>
-                <h4>Masjid Kampung Sungai Lang Baru (MKSLB)</h4>
+            <div class="header-content">
+                <img src="logo.png" alt="Logo" class="logo" onerror="this.src='https://via.placeholder.com/400x400/ffffff/1e5128?text=MKSLB'">
+                <div class="header-text">
+                    <h1>DAURAH REMAJA QURANIC 2026</h1>
+                    <h4>Masjid Kampung Sungai Lang Baru (MKSLB)</h4>
+                </div>
             </div>
         </div>
 
-        <div class="top-content">
-            <div class="promo-section">
-                <h2>PENDAFTARAN DIBUKA</h2>
-                <p>Sertai program intensif hafazan dan pemantapan rohani remaja sempena <strong>Ihya Ramadhan 1447H</strong>. Slot adalah terhad!</p>
+        <div class="main-row">
+            <div class="info-panel">
+                <div class="promo-text">
+                    <h2>PENDAFTARAN DIBUKA</h2>
+                    <p>Sertai program intensif hafazan dan pemantapan rohani remaja sempena <strong>Ihya Ramadhan 1447H</strong>. Slot adalah sangat terhad!</p>
+                </div>
+
+                <div class="details-grid">
+                    <div class="detail-box">
+                        <h3>🗓️ TARIKH</h3>
+                        <p>Setiap Hujung Minggu<br><strong>(Sabtu & Ahad)</strong></p>
+                    </div>
+
+                    <div class="detail-box">
+                        <h3>🎯 KRITERIA</h3>
+                        <ul>
+                            <li>Lancar membaca Al-Quran.</li>
+                            <li>Minat mendalami Tadabbur & Sains.</li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-box">
+                        <h3>📖 OBJEKTIF</h3>
+                        <p>Khatam Silibus Hafazan Tahap 1-5 & Ilmu Sains Al-Quran Moden.</p>
+                    </div>
+                </div>
             </div>
-            <div class="qr-card">
-                <h3>IMBAS UNTUK DAFTAR</h3>
+
+            <div class="qr-panel">
+                <h2>IMBAS UNTUK DAFTAR</h2>
                 <div id="qrcode"></div>
-                <div class="deadline">TUTUP: 1 RAMADHAN 1447H</div>
+                <div class="badge-tutup">
+                    TARIKH TUTUP:<br>1 RAMADHAN 1447H
+                </div>
             </div>
         </div>
 
-        <div class="info-grid">
-            <div class="info-box">
-                <h3>🗓️ TARIKH PROGRAM</h3>
-                <p>Setiap Hujung Minggu<br><strong>Sabtu & Ahad</strong></p>
-            </div>
-
-            <div class="info-box">
-                <h3>🎯 KRITERIA PESERTA</h3>
-                <ul>
-                    <li>Lancar membaca Al-Quran.</li>
-                    <li>Minat mendalam dalam Tadabbur & Sains.</li>
-                </ul>
-            </div>
-
-            <div class="info-box">
-                <h3>📖 OBJEKTIF</h3>
-                <p>Khatam Silibus Hafazan Tahap 1-5 & Memahami Al-Quran melalui Sains Moden.</p>
-            </div>
-        </div>
-
-        <div class="footer">
+        <div class="footer-bar">
             <p>Hubungi Biro Belia / Pendidikan Masjid MKSLB untuk maklumat lanjut</p>
             <h2>"Membina Generasi Al-Quran, Memakmurkan Ummah"</h2>
         </div>
@@ -187,12 +200,13 @@
         const linkPendaftaran = "https://pengurusanemediamasjidkampungs-dotcom.github.io/pendaftaran-daurah-mkslb-2026/";
         new QRCode(document.getElementById("qrcode"), {
             text: linkPendaftaran,
-            width: 550,
-            height: 550,
+            width: 700,
+            height: 700,
             colorDark : "#1e5128",
             colorLight : "#ffffff",
             correctLevel : QRCode.CorrectLevel.H
         });
     </script>
+
 </body>
 </html>
